@@ -1,0 +1,34 @@
+    {%extends 'navbar.html'%}
+    {%block content%}
+      <style>
+        body{margin: none;}
+        
+    .div_login{margin-left:40%;display:inline-block;border-style: solid;border-color: white;border-radius: 10px;background-color: rgb(214, 210, 210);padding-bottom: 5cm;padding-top: 5cm;padding-left: 0.5cm;padding-right: 0.5cm;align-items:center}
+    .input{border-radius: 2px;margin-bottom: 10px;padding: 10px;border-style:none} 
+    .input:focus{border:3px solid #555;transition:0.1s}
+    input[type=submit]{box-shadow:1.7px 3px rgb(61, 59, 59);padding-left: 70px;padding-right:70px;padding-top:10px;padding-bottom:10px; border-radius: 9px;background-color: rgb(143, 33, 51);text-align:center;width:100%}
+    input[type=submit]:hover{background-color: rgb(117, 25, 40);cursor:pointer;transition-duration:0.2s;}
+    .h5_invalidcred{color:red;}
+    .a{color:blue;text-decoration:underline}
+    </style>
+
+    
+
+<div class="div_login"><form method="post">
+  {%csrf_token%}
+
+   <label for="username">Username</label><br>
+    <input class='input' name=username type="text"  placeholder="Username..."><br><br>
+    <labelfor="password">Password</label><br>
+    <input class="input" name=password  type="password" placeholder="Password.."><br>
+    {%for message in messages %}
+    <h5 class="h5_invalidcred">{{message}}</h5>
+    {%endfor%}
+    <center><input type="submit" value="LOGIN"></center><br>
+   <a href="signup" class="a">Dont have an account?</a><br>
+   
+  </form>
+  
+</div>
+<a href='/webcam'><button>go to webcam</button></a>
+{%endblock%}

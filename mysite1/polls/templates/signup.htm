@@ -1,0 +1,32 @@
+{%extends 'navbar.html'%}
+{%block content%}
+
+   <style>       
+    .div1{display:inline-block;border-style: solid;border-color: white;border-radius: 10px;background-color: rgb(214, 210, 210);padding-bottom: 5cm;padding-top: 5cm;padding-left: 0.5cm;padding-right: 0.5cm;}
+    input [type=text], input{border-radius: 2px;margin-bottom: 1cm;padding: 10px;}
+    input[type=submit]{padding: 4px; border-radius: 5px;background-color: lightgreen;}
+    input[type=submit]:hover{background-color: green;cursor:pointer;}
+    .message_signupform{color:red;}
+    </style>
+
+    
+
+
+   
+    
+<div class="div1"><center><h1>Sign up</h1></center><form  method="post">
+    {% csrf_token %}
+    <label for="email">Email</label><br>
+    <input name="email" id="email" type="text" placeholder="Enter your email id..."><br>
+   <label for="username">Username</label><br>
+    <input name="username" type="text" id="username" placeholder="Username..."><br>
+    <label for="password">Password</label><br>
+    <input name="password" id="password" type="password" placeholder="Password..."><br>
+    <label for="password1">Password</label><br>
+    <input name="password1" id="password1" type="password" placeholder="Confirm Password..."><br>
+    {%for message in messages%}
+    <h5 class="message_signupform">{{message}}</h5>
+    {%endfor%}
+    <input type="submit" value="SIGNUP"></form>
+</div>
+{%endblock%}
